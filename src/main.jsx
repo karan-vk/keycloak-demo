@@ -7,7 +7,11 @@ import keycloak from "./keycloak";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<ReactKeycloakProvider authClient={keycloak}>
+		<ReactKeycloakProvider
+			authClient={keycloak}
+			autoRefreshToken={true}
+			initOptions={{ onLoad: "login-required" }}
+		>
 			<App />
 		</ReactKeycloakProvider>
 	</React.StrictMode>,

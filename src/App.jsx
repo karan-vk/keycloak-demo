@@ -10,7 +10,7 @@ const HomePage = () => {
 	return (
 		<div>
 			<h1>KeyCloak Demo</h1>
-
+			{/* {keycloak.login({})} */}
 			<strong>Anyone can access this page</strong>
 			{!!keycloak.authenticated && (
 				<button type="button" onClick={() => keycloak.logout()}>
@@ -18,9 +18,9 @@ const HomePage = () => {
 				</button>
 			)}
 			<div className="card">
-				<h2>`create-realm` user role can access below button</h2>
+				<h2>`offline_access` user role can access below button</h2>
 				<small>button goes here</small>
-				<Authorized roles={["create-realm"]}>
+				<Authorized roles={["offline_access"]}>
 					<button>Create Relam</button>
 				</Authorized>
 
@@ -28,7 +28,7 @@ const HomePage = () => {
 
 				<h2>`ClientAdmin` user role can access below button</h2>
 				<small>button gose here</small>
-				<Authorized roles={["ClientAdmin"]}>
+				<Authorized roles={["admin"]}>
 					<button>Client Admin Acction Button</button>
 				</Authorized>
 			</div>
